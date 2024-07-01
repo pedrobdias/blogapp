@@ -2,7 +2,7 @@ const { request } = require("express");
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
-const postagem = new Schema({
+const PostagemSchema  = new Schema({
   titulo: {
     type: String,
     required: true
@@ -30,4 +30,4 @@ const postagem = new Schema({
   }
 })
 
-mongoose.model("postagens", postagem)
+mongoose.model("postagens", PostagemSchema )

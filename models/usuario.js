@@ -3,7 +3,7 @@ const { required } = require('nodemon/lib/config')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const usuario = new Schema({
+const UsuarioSchema  = new Schema({
   nome: {
     type: String,
     required: true
@@ -22,4 +22,4 @@ const usuario = new Schema({
   }
 })
 
-mongoose.model("usuarios", usuario)
+mongoose.model("usuarios", UsuarioSchema )
