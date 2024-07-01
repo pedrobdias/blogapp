@@ -1,0 +1,38 @@
+<h2>lista de posts</h2>
+{{#if success_msg}}
+  <div class="alert alert-success" role="alert">
+    {{success_msg}}
+  </div>
+  
+{{/if}}
+
+{{#if error_msg}}
+  <div class="alert alert-danger" role="alert">
+    {{error_msg}}
+  </div>
+  
+{{/if}}
+<hr>
+<a href="/postagem/tutorial"><button class="btn btn-success">Ver tutoriais</button></a>
+
+<a href="/erros/pag"><button class="btn btn-success">Ver os erros</button></a>
+
+<hr>
+<a href="/posts/add"><button class="btn btn-success">novo post</button></a>
+
+{{#each posts}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h4>{{nome}}</h4>
+      <small>{{slug}}</small>
+     <p> <small>{{Date}}</small></p>
+    <a href="/post/edit/{{_id}}"><button class="btn btn-success mt-4">Editar</button></a>
+    <form action="/post/deletar" method="post">
+      <input type="hidden" name="id" value="{{_id}}">
+      <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+    </form>
+    </div>
+  </div>
+{{else}}
+  <h4>nenhum post no momento</h4>
+{{/each}}

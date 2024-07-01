@@ -1,0 +1,27 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{errosmsg}}</div>
+{{else}}
+
+{{/each}}
+<div>
+  <div>
+    <form action="/admin/postagens/nova" method="post">
+      <label for="titulo">Título: </label>
+      <input type="text" name="titulo" class="form-control" required>
+      <label for="slug">Slug: </label>
+      <input type="text" name="slug" class="form-control" required>
+      <label for="descricao">Descrição: </label>
+      <input type="text" name="descricao" class="form-control" required>
+      <label for="conteudo">Conteúdo: </label>
+      <textarea name="conteudo" class="form-control"></textarea required>
+      <button class="btn btn-success" type="submit">Criar postagem</button>
+      <select name="categoria" class="custom-select"></select>
+      {{#each post}}
+          <option value="{{_id}}">{{nome}}</option>
+      {{else}}
+          <option value="0">nenhuma categoria aqui</option>
+      {{/each}}
+      <button class="btn btn-success mt-4">Criar</button>
+    </form>
+  </div>
+</div>
