@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 require("../models/usuario")
-const usuario = mongoose.model("Usuario")
+const Usuario = mongoose.model("usuarios")
 const bcrypt = require("bcryptjs")
 const Passport = require('passport')
 
@@ -38,13 +38,13 @@ router.post("/registro", (req, res) => {
     res.render("usuarios/registro", {erros: erros})
 
   }else{
-    usuario.findOne({email: req.body.email}).then((usuario) => {
+    Usuario.findOne({email: req.body.email}).then((usuario) => {
       if(usuario){
         req.flash("error_msg", "e-mail igual de outra pessoa")
         res.redirect("/usuarios/registro")
       }else{
 
-        const novoUsuario = new usuario({
+        const novoUsuario = new Usuario({
           nome: req.body.nome,
           email: req.body.email,
           senha: req.body.senha
