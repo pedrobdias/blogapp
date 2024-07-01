@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const PostSchema  = new Schema({
+const PostSchema = new Schema({
   nome: {
     type: String,
     required: true
@@ -16,4 +16,4 @@ const PostSchema  = new Schema({
   }
 })
 
-mongoose.model("posts", PostSchema )
+mongoose.model('Post', PostSchema);
