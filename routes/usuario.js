@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 require("../models/usuario")
-const usuario = mongoose.models("Usuario")
+const usuario = mongoose.model("Usuario")
 const bcrypt = require("bcryptjs")
 const Passport = require('passport')
 
